@@ -1,0 +1,60 @@
+Perfect — if you're building **only for your own organization**, not as a SaaS, the architecture becomes much simpler, more secure, and tailored.
+
+Here’s a breakdown of **Additional Features** that are ideal for an **internal Duplicati dashboard**:
+
+---
+
+### ✅ **Internal-Only Dashboard Features (non-SaaS)**
+
+#### 1. **Machine Inventory**
+- Show a list of all systems with Duplicati agents.
+- Display metadata: hostname, IP, OS, last backup time.
+
+#### 2. **Backup Job History**
+- View all backup runs per machine.
+- Show time, duration, backup size, and result (Success/Warning/Error).
+- Filter by date, status, or machine.
+
+#### 3. **Centralized Success Rate & Stats**
+- Show:
+  - % success rate (past 7/30/90 days)
+  - Total backup jobs
+  - Total failed/successful jobs
+  - Total data backed up
+- Can be presented with charts.
+
+#### 4. **Alert Center**
+- Highlight:
+  - Jobs that failed
+  - Machines not reporting for X hours/days
+  - Warnings (e.g., partial backup)
+
+#### 5. **Notification System (Optional)**
+- Email alerts to admin for failures or missing agents.
+- Webhooks if you want to connect to Slack or Ops tools.
+
+#### 6. **Secure Agent Reporting (from `report_script.sh`)**
+- Agents post job reports using API (authenticated with a token).
+- API stores backup data in a database for visualization.
+
+#### 7. **Role-based Login (Optional)**
+- Simple admin login to protect the dashboard.
+- No multi-tenant features needed.
+
+---
+
+### 🧱 Tech Stack Recommendation for Internal Use on Replit or Self-hosting:
+
+| Component       | Tech Suggestion       |
+|----------------|------------------------|
+| Backend API    | Python (Flask/FastAPI) or Node.js (Express) |
+| Frontend UI    | React.js               |
+| Database       | SQLite (for small orgs) or PostgreSQL |
+| Charts         | Chart.js or Recharts   |
+| Auth           | Basic JWT or session login |
+| Hosting        | Replit or internal Linux server |
+
+---
+
+### Next Step:
+Would you like me to give you a **project scaffold** (API + frontend UI + database models) that replicates this internal dashboard so you can deploy it via Replit or locally?
